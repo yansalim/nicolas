@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Aniversário</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+</head>
+
+<body>
+    <h1>Feliz Aniversário!</h1>
+    <p>Desejamos a você um dia cheio de alegria, risos e todas as felicidades do mundo.</p>
+
+    <button onclick="showGiftModal()">Clique aqui para resgatar o presente</button>
+
+    <p>Selecione um agente:</p>
+    <div class="container">
+        <button class="button" onclick="showModal('Salve Hyzinnnnn')">Gabriel</button>
+        <button class="button" onclick="showModal('Fala baixo nengue#azeite')">Matheus</button>
+        <button class="button" onclick="showModal('Que a paz do senhor esteja convosco')">João</button>
+        <button class="button" onclick="showModal('Viado que tem barba e é passivo')">Glei</button>
+        <button class="button" onclick="showModal('Filé papai')">Analu</button>
+        <button class="button" onclick="showModal('Ta doido é jaré')">Amanda</button>
+        <button class="button" onclick="showModal('Builda sunfire contra aatrox #azeite')">Vitor</button>
+        <button class="button" onclick="showModal('As luzes estão piscando, jukebox tocando')">Zero</button>
+    </div>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal()">&times;</span>
+            <p id="modal-message"></p>
+        </div>
+    </div>
+
+    <script>
+        function showModal(message) {
+            document.getElementById('modal-message').textContent = message;
+            document.getElementById('modal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+
+        function showGiftModal() {
+            // Mostrar o modal com a mensagem do presente
+            showModal('Vale 350 reais! 🎉');
+
+            // Disparar o efeito de confete
+            confetti({
+                particleCount: 100,
+                spread: 70,
+                origin: { y: 0.6 }
+            });
+        }
+
+        // Fechar modal ao clicar fora dele
+        window.onclick = function (event) {
+            if (event.target == document.getElementById('modal')) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+
+</html>
